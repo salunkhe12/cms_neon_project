@@ -33,10 +33,10 @@ module.exports.getAllArticles = async () => {
 // Function to get categories
 module.exports.getCategories = async () => {
   try {
-    const res = await pool.query('SELECT * FROM categories'); // SQL query to fetch all categories
-    return res.rows;  // Return the rows
+      const res = await pool.query('SELECT * FROM categories');
+      return res.rows; // Return the rows
   } catch (err) {
-    throw new Error('Error fetching categories: ' + err.message); // Handle query failure with better error handling
+      throw new Error('Error fetching categories: ' + err.message);
   }
 };
 
@@ -76,6 +76,16 @@ module.exports.updateArticle = async (id, title, content, categoryId) => {
   }
 };
 
+// Function to get article by ID
+module.exports.getArticleById = async (id) => {
+    try {
+      const res = await pool.query('SELECT * FROM articles WHERE id = $1', [id]); // SQL query to fetch article by ID
+      return res.rows[0];  // Return the first row (article) from the query result
+    } catch (err) {
+      throw new Error('Error fetching article by ID: ' + err.message); // Handle query failure with better error handling
+    }
+  };
+  
 // Function to delete an article
 module.exports.deleteArticle = async (id) => {
   try {

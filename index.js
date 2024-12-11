@@ -41,13 +41,14 @@ app.post('/articles', async (req, res) => {
 
 // Edit article - GET route to show the form
 app.get('/articles/edit/:id', async (req, res) => {
-    const { id } = req.params;
+    const articleId = req.params.id;
     try {
-        const article = await getArticleById(id); // Fetch the article by id
-        const categories = await getCategories(); // Fetch categories to display in the dropdown
-        res.render('edit-article', { article, categories });
+        const article = await getArticleById(articleId); // Fetch article by ID
+        const categories = await getCategories(); // Fetch all categories
+        res.render('edit-article', { article, categories }); // Pass both variables to the view
     } catch (err) {
-        res.status(500).send(err);
+        console.error(err); // Log the error
+        res.status(500).send('Internal Server Error');
     }
 });
 
