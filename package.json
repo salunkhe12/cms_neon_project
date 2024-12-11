@@ -1,9 +1,10 @@
 {
   "name": "cms_neon_project",
   "version": "1.0.0",
-  "description": "",
+  "description": "cms neon project",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,5 +15,13 @@
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "pg": "^8.13.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salunkhe12/cms_neon_project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/salunkhe12/cms_neon_project/issues"
+  },
+  "homepage": "https://github.com/salunkhe12/cms_neon_project#readme"
 }
